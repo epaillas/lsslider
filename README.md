@@ -82,6 +82,7 @@ This repo includes a `Dockerfile` and `render.yaml` for Render deployment.
 - Service name: `lsslider`
 - Expected public URL: `https://lsslider.onrender.com`
 - Health check: `/api/health`
+- Git-based scientific dependencies are installed in a fixed order so the pinned `cosmoprimo` revision is preserved when `desilike` is installed.
 
 For local parity with the hosted environment, the app now reads `HOST` and `PORT` from the environment when those variables are set.
 
