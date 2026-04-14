@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lsslider
+    runtime: docker
+    plan: free
+    autoDeployTrigger: commit
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

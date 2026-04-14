@@ -1,0 +1,384 @@
+:root {
+  --bg: #f3f0e8;
+  --panel: rgba(251, 250, 247, 0.92);
+  --panel-border: rgba(41, 46, 56, 0.12);
+  --ink: #18202c;
+  --muted: #586172;
+  --accent: #005f73;
+  --accent-soft: rgba(0, 95, 115, 0.12);
+  --shadow: 0 18px 40px rgba(27, 31, 43, 0.08);
+  --radius: 20px;
+  --font-sans: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-ui: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(0, 95, 115, 0.18), transparent 26%),
+    radial-gradient(circle at top right, rgba(238, 155, 0, 0.12), transparent 18%),
+    linear-gradient(180deg, #f9f6ef 0%, var(--bg) 100%);
+  font-family: var(--font-ui);
+}
+
+button,
+select,
+input[type="range"] {
+  font: inherit;
+}
+
+.boot-state {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 18px;
+  padding: 24px;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.6fr);
+  gap: 18px;
+}
+
+.masthead-copy,
+.setup-strip,
+.plot-pane,
+.slider-card-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.masthead-copy,
+.setup-strip,
+.slider-card-panel {
+  padding: 16px 18px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.masthead-copy h1,
+.plot-header h2 {
+  margin: 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.masthead-copy h1 {
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+}
+
+.plot-header h2 {
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.lede,
+.section-heading p,
+.plot-card-head p,
+.field span,
+.slider-range,
+.setup-label {
+  color: var(--muted);
+}
+
+.setup-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  align-content: start;
+}
+
+.setup-chip {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+
+
+.setup-chip strong,
+.setup-chip span {
+  display: block;
+}
+
+.setup-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 18px;
+  min-height: 0;
+}
+
+.plot-pane {
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 14px;
+  min-height: 0;
+}
+
+.plot-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.plot-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legend-item {
+  position: relative;
+  padding-left: 24px;
+  color: var(--muted);
+}
+
+.legend-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: var(--accent);
+}
+
+.timing-badge,
+.status-badge {
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  background: white;
+  padding: 10px 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.status-ready {
+  color: var(--accent);
+}
+
+.plot-card {
+  min-height: 0;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(41, 46, 56, 0.08);
+  background: white;
+}
+
+.plot-frame {
+  min-height: 0;
+}
+
+.plot-loading {
+  min-height: 640px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.plot-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.plot-grid-line {
+  stroke: rgba(87, 96, 112, 0.16);
+  stroke-width: 1;
+}
+
+.plot-axis-line {
+  stroke: rgba(41, 46, 56, 0.25);
+  stroke-width: 1.15;
+}
+
+.plot-line {
+  fill: none;
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.plot-panel-title,
+.plot-tick-label,
+.plot-axis-label {
+  font-family: var(--font-ui);
+}
+
+.plot-panel-title {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.plot-tick-label,
+.plot-axis-label {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.plot-axis-label-y {
+  font-size: 10px;
+}
+
+.control-rail {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  min-height: 0;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.compact-field {
+  min-width: 0;
+}
+
+.field select,
+.reset-button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--panel-border);
+}
+
+.field select {
+  background: white;
+  color: var(--ink);
+}
+
+.reset-button {
+  background: var(--ink);
+  color: white;
+  cursor: pointer;
+}
+
+.slider-card-panel {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  max-height: calc(100vh - 120px);
+}
+
+.slider-list {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.slider-card {
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(41, 46, 56, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 246, 248, 0.92));
+}
+
+.slider-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.slider-name {
+  font-weight: 700;
+}
+
+.slider-value {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.slider-card input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.reset-button-inline {
+  width: auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+@media (max-width: 1180px) {
+  .masthead,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .control-rail {
+    position: static;
+    max-height: none;
+  }
+
+  .slider-card-panel {
+    max-height: none;
+  }
+}

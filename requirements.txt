@@ -1,0 +1,9 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.4
+numpy<2
+scipy==1.15.2
+PyYAML==6.0.2
+mpi4py==4.0.3
+cosmoprimo @ git+https://github.com/cosmodesi/cosmoprimo@d1de01c1f3b265fe8b6627c21ca7166eb4f8f936
+desilike @ git+https://github.com/cosmodesi/desilike@358b3d516cc453be5fd8b1d2545c2422f0a28efb
