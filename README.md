@@ -83,6 +83,7 @@ This repo includes a `Dockerfile` and `render.yaml` for Render deployment.
 - Expected public URL: `https://lsslider.onrender.com`
 - Health check: `/api/health`
 - Git-based scientific dependencies are installed in a fixed order so the pinned `cosmoprimo` revision is preserved when `desilike` is installed.
+- The hosted build intentionally skips MPI/OpenMPI. `desilike` falls back to a single-process communicator, which is sufficient for this app.
 
 For local parity with the hosted environment, the app now reads `HOST` and `PORT` from the environment when those variables are set.
 
